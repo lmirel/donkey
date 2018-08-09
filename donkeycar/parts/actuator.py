@@ -57,16 +57,16 @@ class PCA9685H:
       #the other two are for reverse
       if pulse > 0:
         self.pwm.set_pwm(self.channel,     0, pulse)
-        self.pwm.set_pwm(self.channel + 1, 0, pulse)
+        self.pwm.set_pwm(self.channel + 1, 0, pulse + 200)
         self.pwm.set_pwm(self.channel + 2, 0, 0)
         self.pwm.set_pwm(self.channel + 3, 0, 0)
       else:
         self.pwm.set_pwm(self.channel,     0, 0)
         self.pwm.set_pwm(self.channel + 1, 0, 0)
-        self.pwm.set_pwm(self.channel + 2, 0, -pulse)
+        self.pwm.set_pwm(self.channel + 2, 0, -pulse - 200)
         self.pwm.set_pwm(self.channel + 3, 0, -pulse)
-        print('channel {} -pulse {}'.format(self.channel, -pulse))
-#        self.pwm.set_pwm(self.channel, 0, pulse) 
+        #print('channel {} -pulse {}'.format(self.channel, -pulse))
+        #self.pwm.set_pwm(self.channel, 0, pulse) 
 
     def run(self, pulse):
         self.set_pulse(pulse)
