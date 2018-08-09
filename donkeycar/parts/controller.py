@@ -150,29 +150,32 @@ class PS3Joystick(Joystick):
         super(PS3Joystick, self).__init__(*args, **kwargs)
 
         self.axis_names = {
-            0x00 : 'left_stick_horz',
-            0x01 : 'left_stick_vert',
-            0x02 : 'right_stick_horz',
-            0x05 : 'right_stick_vert',
-
+            0x00 : 'x',
+            0x01 : 'y',
+            0x02 : 'z',
+            0x03 : 'rx',
+            0x04 : 'ry',
+            0x05 : 'rz',
+            0x06 : 'trottle',
+            0x07 : 'rudder',
+            0x08 : 'wheel',
+            0x09 : 'gas',
+            0x0a : 'brake',
+            0x10 : 'hat0x',
+            0x11 : 'hat0y',
+            0x12 : 'hat1x',
+            0x13 : 'hat1y',
+            0x14 : 'hat2x',
+            0x15 : 'hat2y',
+            0x16 : 'hat3x',
+            0x17 : 'hat3y',
+            0x18 : 'pressure',
+            0x19 : 'distance',
             0x1a : 'tilt_x',
             0x1b : 'tilt_y',
-            0x3d : 'tilt_a',
-            0x3c : 'tilt_b',
-
-            0x32 : 'L1_pressure',
-            0x33 : 'R1_pressure',
-            0x31 : 'R2_pressure',
-            0x30 : 'L2_pressure',
-
-            0x36 : 'cross_pressure',
-            0x35 : 'circle_pressure',
-            0x37 : 'square_pressure',
-            0x34 : 'triangle_pressure',
-
-            0x2d : 'dpad_r_pressure',
-            0x2e : 'dpad_d_pressure',
-            0x2c : 'dpad_u_pressure',
+            0x1c : 'tool_width',
+            0x20 : 'volume',
+            0x28 : 'misc',
         }
         
 
@@ -654,8 +657,8 @@ class PS3JoystickController(JoystickController):
         }
 
         self.axis_trigger_map = {
-            'left_stick_horz' : self.set_steering,
-            'right_stick_vert' : self.set_throttle,
+            'rx' : self.set_steering,
+            'y' : self.set_throttle,
         }
 
 
