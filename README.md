@@ -24,6 +24,7 @@ community contributions.
 
 ### Getting started. 
 After building a Donkey2, here are the steps to start driving.
+pip install -e .
 
 install donkey
 ```
@@ -35,6 +36,9 @@ Create a car folder.
 ```
 donkey createcar --path ~/d2
 ```
+
+configure
+donkey calibrate --channel <your_steering_channel>
 
 Start your car.
 ```
