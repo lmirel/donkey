@@ -180,26 +180,51 @@ class PS3Joystick(Joystick):
         
 
         self.button_names = {
-            0x120 : 'select',
-            0x123 : 'start',
-            0x2c0 : 'PS',
+            0x120 : 'trigger',
+            0x121 : 'thumb',
+            0x122 : 'thumb2',
+            0x123 : 'top',
+            0x124 : 'top2',
+            0x125 : 'pinkie',
+            0x126 : 'base',
+            0x127 : 'base2',
+            0x128 : 'base3',
+            0x129 : 'base4',
+            0x12a : 'base5',
+            0x12b : 'base6',
 
-            0x12a : 'L1',
-            0x12b : 'R1',
-            0x128 : 'L2',
-            0x129 : 'R2',
-            0x121 : 'L3',
-            0x122 : 'R3',
-	   
-            0x12c : "triangle", 
+            #PS3 sixaxis specific
+            0x12c : "triangle",
             0x12d : "circle",
             0x12e : "cross",
             0x12f : 'square',
 
-            0x124 : 'dpad_up',
-            0x126 : 'dpad_down',
-            0x127 : 'dpad_left',
-            0x125 : 'dpad_right',
+            0x130 : 'a',
+            0x131 : 'b',
+            0x132 : 'c',
+            0x133 : 'x',
+            0x134 : 'y',
+            0x135 : 'z',
+            0x136 : 'tl',
+            0x137 : 'tr',
+            0x138 : 'tl2',
+            0x139 : 'tr2',
+            0x13a : 'select',
+            0x13b : 'start',
+            0x13c : 'mode',
+            0x13d : 'thumbl',
+            0x13e : 'thumbr',
+
+            0x220 : 'dpad_up',
+            0x221 : 'dpad_down',
+            0x222 : 'dpad_left',
+            0x223 : 'dpad_right',
+
+            # XBox 360 controller uses these codes.
+            0x2c0 : 'dpad_left',
+            0x2c1 : 'dpad_right',
+            0x2c2 : 'dpad_up',
+            0x2c3 : 'dpad_down',
         }
 
 
@@ -647,13 +672,13 @@ class PS3JoystickController(JoystickController):
             'dpad_up' : self.increase_max_throttle,
             'dpad_down' : self.decrease_max_throttle,
             'start' : self.toggle_constant_throttle,
-            "R1" : self.chaos_monkey_on_right,
-            "L1" : self.chaos_monkey_on_left,
+            'tr' : self.chaos_monkey_on_right,
+            'tl' : self.chaos_monkey_on_left,
         }
 
         self.button_up_trigger_map = {
-            "R1" : self.chaos_monkey_off,
-            "L1" : self.chaos_monkey_off,
+            'tr' : self.chaos_monkey_off,
+            'tl' : self.chaos_monkey_off,
         }
 
         self.axis_trigger_map = {
